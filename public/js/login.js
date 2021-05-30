@@ -26,3 +26,35 @@ else{
 }
 };
 
+//next I need the signup form handler
+
+const signupFormHandler = async (event) =>{
+event.preventDefault();
+
+// i need queries for name, email and password these ids need to match on the html and different than login ids
+
+const name = document.querySelector('#name').value.trim();
+const email = document.querySelector('#email-signup').value.trim();
+const passowrd = document.querySelector('#password-signup').value.trim();
+
+//need to confirm if itis user or users?
+if (name && email && password){
+const response = await fetch('api/users', {
+method :'POST',
+body :JSON.stringify({name, email, password}),
+headers:{'Content-Type': 'application/json'},
+})
+
+if (response.ok){
+document.location.replace ('/profile');
+}
+else {
+alert(response.statusText);
+
+}
+}}
+document.querySelector('login-form')
+document.addEventListener('submit', loginFormHandler);
+
+document.querySelector('signup-form')
+document.addEventListener('submit', signupFormHandler);
