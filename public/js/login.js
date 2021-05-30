@@ -35,9 +35,9 @@ event.preventDefault();
 
 const name = document.querySelector('#name').value.trim();
 const email = document.querySelector('#email-signup').value.trim();
-const passowrd = document.querySelector('#password-signup').value.trim();
+const password = document.querySelector('#password-signup').value.trim();
 
-//need to confirm if itis user or users?
+//need to confirm if it is user or users?
 if (name && email && password){
 const response = await fetch('api/users', {
 method :'POST',
@@ -58,3 +58,5 @@ document.addEventListener('submit', loginFormHandler);
 
 document.querySelector('signup-form')
 document.addEventListener('submit', signupFormHandler);
+
+
