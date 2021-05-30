@@ -2,17 +2,17 @@
     {
       "name": "Guy",
       "email": "guy@gmail.com",
-      "password": "password12345"
+      "password": "12345678"
     },
     {
       "name": "Gal",
       "email": "galgadot@yahoo.com",
-      "password": "password12345"
+      "password": "12345678"
     },
     {
       "name": "Ben",
       "email": "thestiller@gmail.com",
-      "password": "password12345"
+      "password": "12345678"
     }
   ]
   

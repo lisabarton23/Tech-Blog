@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User, Blog } = require('../models');
+const {Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -37,7 +37,7 @@ attributes :['name'],
 ]
 });
 
-const blog =blogData.get ({plain: true});
+const blog = blogData.get({plain: true});
 res.render('blog', {
 ...blog,
 logged_in: req.session.logged_in
