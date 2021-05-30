@@ -6,10 +6,10 @@ const date = document.querySelector('#date_created').value.trim();
 const entry = document.querySelector('#entry').value.trim();
 
 
-if (name && date && contents) {
+if (name && date && entry) {
     const response = await fetch(`/api/blog`, {
       method: 'POST',
-      body: JSON.stringify({ name, date, contents }),
+      body: JSON.stringify({ name, date, entry }),
       headers: {
         'Content-Type': 'application/json',
       },
