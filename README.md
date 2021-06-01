@@ -12,4 +12,6 @@ This is a webpage so you must use my heroku link to use it
 To create a blog of your own you simply sign-up for an account or login in to your current account, then follow displayed prompts.
 
 --md
-![screenshot][]
+![screenshot](./images/screenshot.PNG)
+
+[link to herku deploy][]
