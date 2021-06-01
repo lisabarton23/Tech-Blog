@@ -3,13 +3,14 @@ const newFormHandler = async (event) => {
     event.preventDefault();
 const name = document.querySelector('#posttitle').value.trim();
 const date = document.querySelector('#date_created').value.trim();
+const userId = document.querySelector('#user_id').value.trim();
 const entry = document.querySelector('#entry').value.trim();
 
 
-if (name && date && entry) {
+if (name && date && userId && entry) {
     const response = await fetch(`/api/blog`, {
       method: 'POST',
-      body: JSON.stringify({ name, date, entry }),
+      body: JSON.stringify({ name, date, userId, entry }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -37,11 +38,7 @@ if (name && date && entry) {
     }
   };
   
-  document
-    .querySelector('.new-blogEntry-form')
-    .addEventListener('submit', newFormHandler);
+  document.querySelector('.new-blogEntry-form').addEventListener('submit', newFormHandler);
   
-  document
-    .querySelector('.blog-entries-list')
-    .addEventListener('click', delButtonHandler);
+  // document.querySelector('.blog-entries-list').addEventListener('click', delButtonHandler);
   
