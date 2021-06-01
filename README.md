@@ -14,4 +14,4 @@ To create a blog of your own you simply sign-up for an account or login in to yo
 --md
 ![screenshot](./images/screenshot.PNG)
 
-[link to herku deploy][]
+[link to herku deploy][https://damp-woodland-02437.herokuapp.com/]
