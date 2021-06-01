@@ -23,9 +23,7 @@ Blog.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    creatorname: {
-        type: DataTypes.STRING,
-    },
+  
     user_id: {
       type: DataTypes.INTEGER,
       references: {

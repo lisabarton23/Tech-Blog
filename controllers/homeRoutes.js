@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 //need router.get to get the users blog entries and data
 router.get('/', async (req, res) => {
 try {
-const blogData = await Blog.findAll ({
+const blogData = await Blog.findAll({
 include : [
 //this will be the model user and attributes after created
 {model: User,
@@ -16,7 +16,8 @@ include : [
 ],
 
 });
-const blogs = blogData.map ((blog) => blog.get({plain:true}))
+//serializes the information I want to get back, do i want all blogs to appear to anyone or do you have to login?
+const blogs = blogData.map((blog) => blog.get({ plain:true }))
 res.render('homepage', {
 blogs,
 logged_in: req.session.logged_in
