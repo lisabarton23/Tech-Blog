@@ -3,7 +3,7 @@
   <div class="col-md-5">
     <h2>
       
-      <a href="/project/{{blog.id}}">{{blog.name}}</a>
+      <a href="/blogs/{{blog.id}}">{{blog.posttitle}}</a>
     </h2>
     
     <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
@@ -12,6 +12,10 @@
     <p>
       {{blog.entry}}
     </p>
+        <button  id={{blog.id}} class="deletePostBtn">Delete</button>
+  
+
   </div>
 </div>
 {{/each}}
+  <script src="/js/delete.js"></script>

@@ -5,10 +5,10 @@ const name = document.querySelector('#posttitle').value.trim();
 const date = document.querySelector('#date_created').value.trim();
 const userId = document.querySelector('#user_id').value.trim();
 const entry = document.querySelector('#entry').value.trim();
-
+console.log (name, date, userId, entry)
 
 if (name && date && userId && entry) {
-    const response = await fetch(`/api/blog`, {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
       body: JSON.stringify({ name, date, userId, entry }),
       headers: {
@@ -17,28 +17,15 @@ if (name && date && userId && entry) {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert('Failed to create blog entry');
     }
   }}
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/blog/${id}`, {
-        method: 'DELETE',
-      });
   
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete blog entry');
-      }
-    }
-  };
   
   document.querySelector('.new-blogEntry-form').addEventListener('submit', newFormHandler);
   
-  // document.querySelector('.blog-entries-list').addEventListener('click', delButtonHandler);
+ // document.querySelector('.deletebtn').addEventListener('click', delButtonHandler);
   
