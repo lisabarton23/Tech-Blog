@@ -28,25 +28,28 @@ catch (err) {
 
 //try to get blog by user id
 
-router.get('/blog/:id', async (req, res)=> {
-try{
-const blogData = await Blog.findbyPK(req.params.id, {
-    include:[
-{ model: User,
-attributes :['name'],
-},
-]
-});
+router.get('/blogs/:id', async (req, res)=> {
+Blog.findOne({
+  where:{
 
-const blog = blogData.get({plain: true});
-res.render('blog', {
-...blog,
-logged_in: req.session.logged_in
-});
+    id: req.params.id,
+  },
 
-}catch (err) {
-    res.status(500).json(err);
-}});
+})
+.then((data) => {
+  if (!data) {
+    res.status(404).json({ message: "No blog found with this id" });
+    return;
+  }
+  const blog = data.get({ plain: true });
+  
+  res.render("blogid", { blog });
+})
+.catch((err) => {
+  console.log(err);
+  res.status(500).json(err);
+});
+});
 
 
 router.get('/profile', withAuth, async (req, res) => {
